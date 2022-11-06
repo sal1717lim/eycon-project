@@ -422,7 +422,7 @@ def main():
     #if true loads the checkpoit in the ./
 
     #training data loading
-    subprocess.run(["tensorboard", "--logdir","train11-6-10","--port","6006"])
+    #subprocess.run(["tensorboard", "--logdir","train11-6-10","--port","6006"])
     train_dataset = EYCON(path=TRAIN_DIR)
     train_loader = DataLoader(
         train_dataset,
