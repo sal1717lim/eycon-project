@@ -63,7 +63,7 @@ CHECKPOINT_GEN = "gen.pth.tar"
 # In[13]:
 
 
-def save_some_examples(gen, val_loader, epoch, folder,writer=None):
+def save_some_examples(gen, val_loader, epoch, folder,writer):
     x, y = next(iter(val_loader))
     x, y = x.to(DEVICE), y.to(DEVICE)
     gen.eval()
@@ -73,7 +73,7 @@ def save_some_examples(gen, val_loader, epoch, folder,writer=None):
         save_image(y_fake, folder + f"/y_gen_{epoch}.png")
         grid = torchvision.utils.make_grid(x)
         writer.add_image('images'+str(epoch), grid, 0)
-        writer.close()
+
         if epoch == 0:
             save_image(x * 0.5 + 0.5, folder + f"/input.png")
             save_image(y * 0.5 + 0.5, folder + f"/label.png")
@@ -460,7 +460,7 @@ def main():
             save_checkpoint(gen, opt_gen, epoch, filename=CHECKPOINT_GEN)
             save_checkpoint(disc, opt_disc, epoch, filename=CHECKPOINT_DISC)
 
-        save_some_examples(gen, test_loader, epoch, folder="evaluation",writer=writer)
+        save_some_examples(gen, test_loader, epoch, folder="evaluation",writer)
 
 
 # In[21]:
