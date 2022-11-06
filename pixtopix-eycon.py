@@ -14,6 +14,7 @@ import random
 from torch.utils.data import Dataset, DataLoader
 from torchvision.utils import save_image
 import os
+import subprocess
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print(DEVICE)
 
