@@ -128,8 +128,8 @@ class EYCON(Dataset):
 # In[40]:
 
 
-traindataset=EYCON("../input/eycon/dataset500")
-testdataset=EYCON("../input/eycon/dataset500",train=False)
+traindataset=EYCON("./eycon/dataset500")
+testdataset=EYCON("./eycon/dataset500",train=False)
 print("train dataset:",len(traindataset))
 print("test  dataset:",len(testdataset))
 
