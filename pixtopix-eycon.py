@@ -447,7 +447,7 @@ def main():
 
     best=10000000
     resultat=1
-    save_some_examples(gen, test_loader, -1, folder="evaluation")
+    save_some_examples(gen, test_loader, -1, folder="evaluation",writer=writer)
     for epoch in range(NUM_EPOCHS):
         print("\n epoch", epoch, "\n")
         train_fn(
