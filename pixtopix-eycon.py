@@ -71,7 +71,7 @@ def save_some_examples(gen, val_loader, epoch, folder,writer):
         y_fake = gen(x)
         y_fake = y_fake * 0.5 + 0.5  # remove normalization#
         save_image(y_fake, folder + f"/y_gen_{epoch}.png")
-        grid = torchvision.utils.make_grid(x)
+        grid = torchvision.utils.make_grid(y_fake)
         writer.add_image('images'+str(epoch), grid, 0)
 
         if epoch == 0:
