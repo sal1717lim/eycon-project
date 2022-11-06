@@ -29,7 +29,7 @@ import torch.optim as optim
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 #paths and sets for the data
-TRAIN_DIR = "../input/eycon/dataset500"
+TRAIN_DIR = "./eycon/dataset500"
 TRAIN_LIST = ["set00" , 'set01' , 'set02' , 'set06' , 'set07']
 #TRAIN_LIST = ["set03" , 'set04' , 'set05' , 'set09' , 'set10', "set11"]
 #TEST_LIST = ["set11"]
@@ -282,7 +282,7 @@ class Generator(nn.Module):
 # In[10]:
 
 
-dataset = EYCON("../input/eycon/dataset500")
+dataset = EYCON("./eycon/dataset500")
 # Create the dataloader
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
                                          shuffle=True)
