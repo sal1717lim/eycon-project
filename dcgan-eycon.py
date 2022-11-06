@@ -348,15 +348,13 @@ print(netG)
 # In[16]:
 
 
-get_ipython().system('pip install torch-summary')
+
 
 
 # In[97]:
 
 
-from torchsummary import summary
 
-summary(netG,(100,1,1))
 
 
 # In[98]:
