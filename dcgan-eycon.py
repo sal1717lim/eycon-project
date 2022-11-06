@@ -85,7 +85,7 @@ ngf = 64
 ndf = 16
 
 # Number of training epochs
-num_epochs = 5
+num_epochs = int(sys.argv[-2])
 
 # Learning rate for optimizers
 lr = 0.0002
