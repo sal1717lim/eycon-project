@@ -17,7 +17,7 @@ import os
 import subprocess
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print(DEVICE)
-
+import sys
 
 # # CONFIG
 
@@ -37,9 +37,9 @@ MODEL_LIST = ["ResUnet", "Unet"]
 MODEL = MODEL_LIST[0]
 #hyper-parameters
 LEARNING_RATE = 2e-4
-BATCH_SIZE = 16
+BATCH_SIZE = int(sys.argv[-1])
 #the number of images saved by save_some_images
-EVAL_BATCH_SIZE = 16
+EVAL_BATCH_SIZE = int(sys.argv[-1])
 #the ressources allocated to loading the data
 NUM_WORKERS = 2
 IMAGE_SIZE = 256
