@@ -460,7 +460,7 @@ def main():
             save_checkpoint(gen, opt_gen, epoch, filename=CHECKPOINT_GEN)
             save_checkpoint(disc, opt_disc, epoch, filename=CHECKPOINT_DISC)
 
-        save_some_examples(gen, test_loader, epoch, folder="evaluation",writer)
+        save_some_examples(gen, test_loader, epoch, folder="evaluation",writer=writer)
 
 
 # In[21]:
