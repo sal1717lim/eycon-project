@@ -469,7 +469,7 @@ for epoch in range(num_epochs):
         D_losses.append(errD.item())
 
         # Check how the generator is doing by saving G's output on fixed_noise
-        if i % 100 == 0::
+        if i % 100 == 0:
             with torch.no_grad():
                 fake = netG(fixed_noise).detach().cpu()
             fride=vutils.make_grid(fake, padding=2, normalize=True)
