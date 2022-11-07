@@ -393,7 +393,7 @@ writer = SummaryWriter("train{}-{}-{}".format(localtime().tm_mon, localtime().tm
 print(writer)
 for epoch in range(num_epochs):
     # For each batch in the dataloader
-    print("epoch:",epoch)
+    print("epoch:",epoch,"/",num_epochs)
     loop=tqdm(enumerate(dataloader, 0))
     for i, data in loop:
 
@@ -456,7 +456,7 @@ for epoch in range(num_epochs):
                 D_G_Z1=D_G_z1,
                 D_G_Z2=D_G_z2
             )
-        if i % 10 == 0:
+        if i % 100 == 0:
             writer.add_scalar("LossG",errG.item(),epoch*(len(dataloader))+i)
             writer.add_scalar("LossD",errD.item(),epoch*(len(dataloader))+i)
             writer.add_scalar("D_X",D_x,epoch*(len(dataloader))+i)
@@ -469,10 +469,10 @@ for epoch in range(num_epochs):
         D_losses.append(errD.item())
 
         # Check how the generator is doing by saving G's output on fixed_noise
-        if (iters % 500 == 0) or ((epoch == num_epochs-1) and (i == len(dataloader)-1)):
+        if i % 100 == 0::
             with torch.no_grad():
                 fake = netG(fixed_noise).detach().cpu()
             fride=vutils.make_grid(fake, padding=2, normalize=True)
-            writer.add_image('images'+str(i)+"_"+str(epoch), fride, 0)
+            writer.add_image('images_epoch'+str(epoch)+"_"+str(i), fride, 0)
 
         iters += 1
