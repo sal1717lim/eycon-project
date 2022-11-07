@@ -88,7 +88,7 @@ ndf = 16
 num_epochs = int(sys.argv[-2])
 
 # Learning rate for optimizers
-lr = 0.0002
+lr = 0.0005
 
 # Beta1 hyperparam for Adam optimizers
 beta1 = 0.5
@@ -394,8 +394,9 @@ print(writer)
 for epoch in range(num_epochs):
     # For each batch in the dataloader
     print("epoch:",epoch,"/",num_epochs)
-    loop=tqdm(enumerate(dataloader, 0))
-    for i, data in loop:
+    loop=tqdm(dataloader)
+    i=0
+    for data in loop:
 
         ############################
         # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
@@ -476,3 +477,4 @@ for epoch in range(num_epochs):
             writer.add_image('images_epoch'+str(epoch)+"_"+str(i), fride, 0)
 
         iters += 1
+        i+=1
