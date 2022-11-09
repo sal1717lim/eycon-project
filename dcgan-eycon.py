@@ -170,8 +170,8 @@ class EYCON(Dataset):
 # In[7]:
 
 
-traindataset=EYCON("./eycon/dataset500")
-testdataset=EYCON("./eycon/dataset500",train=False)
+traindataset=EYCON(sys.argv[-3])
+testdataset=EYCON(sys.argv[-3],train=False)
 print("train dataset:",len(traindataset))
 print("test  dataset:",len(testdataset))
 
@@ -282,7 +282,7 @@ class Generator(nn.Module):
 # In[10]:
 
 
-dataset = EYCON("./eycon/dataset500")
+dataset = EYCON(sys.argv[-3])
 # Create the dataloader
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
                                          shuffle=True)
