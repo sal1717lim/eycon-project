@@ -478,3 +478,5 @@ for epoch in range(num_epochs):
 
         iters += 1
         i+=1
+    torch.save(netD.state_dict(), "D"+str(epoch)+".pth.tar")
+    torch.save(netG.state_dict(), "D" + str(epoch) + ".pth.tar")
