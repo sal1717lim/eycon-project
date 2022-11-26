@@ -18,16 +18,14 @@ import torchvision.datasets as dset
 from torchvision.utils import save_image
 import os
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-print(DEVICE)
+print("cuda:"+DEVICE)
+print(torch.cuda.get_device_name(0))
 import torch.optim as optim
 
 
 # # CONFIG
 
 # In[3]:
-
-
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 #paths and sets for the data
 TRAIN_DIR = "./eycon/dataset500"
 TRAIN_LIST = ["set00" , 'set01' , 'set02' , 'set06' , 'set07']
