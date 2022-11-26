@@ -27,7 +27,7 @@ import sys
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 #paths and sets for the data
-TRAIN_DIR = "./eycon/dataset500"
+TRAIN_DIR = sys.argv[-3]
 TRAIN_LIST = ["set00" , 'set01' , 'set02' , 'set06' , 'set07']
 #TRAIN_LIST = ["set03" , 'set04' , 'set05' , 'set09' , 'set10', "set11"]
 #TEST_LIST = ["set11"]
@@ -48,7 +48,7 @@ IMAGE_SIZE = 256
 INIT_WEIGHTS = True
 CHANNELS_IMG = 3
 L1_LAMBDA = 100
-NUM_EPOCHS = 20
+NUM_EPOCHS = int(sys.argv[-2])
 #when true loads the models saved as "disc.pth.tar" and "gen.pth.tar", they need to be in ./
 LOAD_MODEL = True
 #when true saves a checkpoint every 5 epochs
@@ -133,8 +133,8 @@ class EYCON(Dataset):
 # In[40]:
 
 
-traindataset=EYCON("./eycon/dataset500")
-testdataset=EYCON("./eycon/dataset500",train=False)
+traindataset=EYCON(sys.argv[-3])
+testdataset=EYCON(sys.argv[-3],train=False)
 print("train dataset:",len(traindataset))
 print("test  dataset:",len(testdataset))
 
