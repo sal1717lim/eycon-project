@@ -454,6 +454,7 @@ for epoch in range(num_epochs):
                 D_X=D_x,
                 D_G_Z1=D_G_z1,
                 D_G_Z2=D_G_z2
+                D_G_Z2=D_G_z2
             )
         if i % 100 == 0:
             writer.add_scalar("LossG",errG.item(),epoch*(len(dataloader))+i)
